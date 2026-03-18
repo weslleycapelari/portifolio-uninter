@@ -1,5 +1,13 @@
 // Seleciona o formulario principal de contato pelo id.
 const formContato = document.getElementById("form-contato");
+const botaoTema = document.getElementById("botao-tema");
+
+// Alterna a classe dark-theme no body a cada clique no botao de tema.
+if (botaoTema) {
+	botaoTema.addEventListener("click", function () {
+		document.body.classList.toggle("dark-theme");
+	});
+}
 
 if (formContato) {
 	// Escuta o envio do formulario para aplicar as validacoes no lado do cliente.
