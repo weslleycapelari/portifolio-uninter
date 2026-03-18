@@ -151,6 +151,7 @@ section h2 {
 
 #form-contato input,
 #form-contato textarea {
+	width: 100%;
 	padding: 0.65rem 0.75rem;
 	border: 1px solid var(--color-border);
 	border-radius: 0.45rem;
@@ -158,6 +159,7 @@ section h2 {
 }
 
 #form-contato button {
+	align-self: flex-start;
 	width: fit-content;
 	padding: 0.65rem 1rem;
 	border: none;
@@ -173,14 +175,19 @@ section h2 {
 	background-color: var(--color-primary-hover);
 }
 
+#form-contato textarea {
+	resize: vertical;
+	min-height: 120px;
+}
+
 footer {
 	text-align: center;
 	padding: 1rem;
 	color: #4a4a4a;
 }
 
-/* Ajustes para telas menores */
-@media (max-width: 720px) {
+/* Breakpoint smartphone (<768px): navegacao em coluna e secoes mais compactas */
+@media (max-width: 768px) {
 	header {
 		flex-direction: column;
 		align-items: flex-start;
@@ -188,6 +195,12 @@ footer {
 	}
 
 	nav ul {
-		flex-wrap: wrap;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 0.5rem;
+	}
+
+	section {
+		padding: 1rem;
 	}
 }
