@@ -1,38 +1,37 @@
-/* Variáveis Globais (Cores, Fontes e Espaçamentos) */
+/* Base do tema (variáveis e ajustes globais). */
 :root {
   --bg-color: #f4f7f6;
   --surface-color: #ffffff;
   --text-color: #333333;
   --text-light: #666666;
-  --primary-color: #2c3e50;
-  --secondary-color: #3498db;
+  --primary-color: #2e7d32;   /* verde principal */
+  --secondary-color: #66bb6a; /* verde mais claro */
   --border-color: #e0e0e0;
-  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
 }
 
-/* Variáveis para o Tema Escuro (Dark Mode) */
-.dark-theme {
+/* Tema escuro: ao aplicar a classe no body, as variáveis são sobrescritas. */
+body.dark-theme {
   --bg-color: #121212;
   --surface-color: #1e1e1e;
   --text-color: #e0e0e0;
   --text-light: #aaaaaa;
-  --primary-color: #ffffff;
-  --secondary-color: #4dabf7;
+  --primary-color: #81c784;
+  --secondary-color: #4caf50;
   --border-color: #333333;
   --shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
 
-/* Reset de CSS */
+/* Reset para consistência entre navegadores. */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Comportamento da rolagem para âncoras */
+/* Âncoras: rolagem suave e compensação do header sticky. */
 html {
   scroll-behavior: smooth;
-  /* Evita que o header fixo cubra os títulos ao rolar a página */
   scroll-padding-top: 100px;
 }
 
@@ -44,7 +43,7 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
-/* Header Fixo (Flexbox) */
+/* Header sticky com navegação e botões de ação. */
 header {
   position: sticky;
   top: 0;
@@ -52,10 +51,18 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   padding: 1rem 5%;
   box-shadow: var(--shadow);
   z-index: 1000;
   transition: background-color 0.3s;
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 0.5rem;
 }
 
 .logo h1 {
@@ -86,22 +93,52 @@ nav a:hover {
   color: var(--secondary-color);
 }
 
-#botao-tema {
-  background-color: var(--primary-color);
-  color: var(--surface-color);
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
+/* Ações do header: botões em formato de ícone. */
+.header-acoes {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.botao-icone {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  background-color: transparent;
+  color: var(--text-color);
   cursor: pointer;
-  font-weight: bold;
-  transition: transform 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, color 0.2s, transform 0.15s, border-color 0.2s;
 }
 
-#botao-tema:hover {
-  transform: scale(1.05);
+.botao-icone:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+  transform: translateY(-1px);
 }
 
-/* Corpo Principal */
+body.dark-theme .botao-icone:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.botao-icone:focus-visible {
+  outline: none;
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.25);
+}
+
+.icone {
+  display: block;
+}
+
+/* No desktop, o menu é sempre visível; o botão hambúrguer aparece apenas no mobile. */
+#botao-menu {
+  display: none;
+}
+
+/* Conteúdo principal. */
 main {
   max-width: 1000px;
   margin: 2rem auto;
@@ -125,7 +162,7 @@ section h2 {
   padding-bottom: 0.5rem;
 }
 
-/* Seção Sobre com Flexbox */
+/* Seção Sobre: layout em colunas quando houver espaço. */
 .sobre-conteudo {
   display: flex;
   gap: 2rem;
@@ -151,7 +188,7 @@ section h2 {
   margin-top: 0.5rem;
 }
 
-/* Seção Formação */
+/* Seção Formação. */
 .item-formacao {
   margin-bottom: 1.5rem;
 }
@@ -169,10 +206,9 @@ section h2 {
   font-size: 0.9rem;
 }
 
-/* Grids: Experiência e Portfólio (CSS Grid) */
+/* Cards em grid: experiência e portfólio. */
 .grid-portfolio {
   display: grid;
-  /* Grid responsivo: cria colunas de no mínimo 280px */
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
 }
@@ -209,7 +245,7 @@ section h2 {
   margin-bottom: 1.5rem;
 }
 
-/* Botões dos Projetos Github */
+/* Botões dos projetos. */
 .btn-projeto {
   display: inline-block;
   padding: 0.6rem 1rem;
@@ -228,7 +264,7 @@ section h2 {
   background-color: var(--secondary-color);
 }
 
-/* Formulário de Contato */
+/* Formulário de contato. */
 #form-contato {
   display: flex;
   flex-direction: column;
@@ -256,7 +292,12 @@ section h2 {
   font-family: inherit;
 }
 
-/* Destaque ao focar no input */
+.form-group input,
+.form-group textarea {
+  width: 100%;
+}
+
+/* Destaque ao focar no input. */
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
@@ -280,7 +321,7 @@ button[type="submit"]:hover {
   background-color: #2980b9;
 }
 
-/* Rodapé */
+/* Rodapé. */
 footer {
   text-align: center;
   padding: 2rem;
@@ -294,17 +335,45 @@ footer a {
   text-decoration: none;
 }
 
-/* Media Queries (Responsividade para Mobile) */
+/* Breakpoint mobile (<768px): menu vira dropdown e seções ficam mais compactas. */
 @media (max-width: 768px) {
   header {
-    flex-direction: column;
-    text-align: center;
-    gap: 1rem;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .logo {
+    order: 1;
+  }
+
+  .header-acoes {
+    order: 2;
+    margin-left: auto;
+  }
+
+  #botao-menu {
+    display: inline-flex;
+  }
+
+  nav {
+    order: 3;
+    width: 100%;
   }
 
   nav ul {
-    flex-wrap: wrap;
-    justify-content: center;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding-top: 0.5rem;
+  }
+
+  header.menu-aberto nav ul {
+    display: flex;
+  }
+
+  section {
+    padding: 1.25rem;
   }
 
   .sobre-conteudo {
