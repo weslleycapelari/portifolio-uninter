@@ -1,131 +1,194 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Portfólio Pessoal Acadêmico</title>
 
-		<!-- Vincula os estilos principais do projeto -->
-		<link rel="stylesheet" href="style.css" />
-	</head>
-	<body>
-		<!-- Cabeçalho principal com identificação e navegação -->
-		<header>
-			<h1>Meu Portfólio Acadêmico</h1>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weslley Capelari - Full Stack Developer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-			<!-- Menu de navegação com links âncora para as seções da página -->
-			<nav aria-label="Navegação principal">
-				<ul>
-					<li><a href="#sobre">Sobre</a></li>
-					<li><a href="#formacao">Formação</a></li>
-					<li><a href="#portfolio">Portfólio</a></li>
-					<li><a href="#contato">Contato</a></li>
-				</ul>
-			</nav>
+<body>
+  <!-- Cabeçalho fixo com navegação -->
+  <header>
+    <div class="logo">
+      <h1>Weslley Capelari</h1>
+      <p>Software Developer</p>
+    </div>
 
-			<!-- Botao para alternar entre tema claro e escuro -->
-			<button id="botao-tema" type="button">Tema</button>
-		</header>
+    <nav aria-label="Navegação principal">
+      <ul>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#formacao">Formação</a></li>
+        <li><a href="#experiencia">Experiência</a></li>
+        <li><a href="#portfolio">Portfólio</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
 
-		<!-- Conteúdo principal da página -->
-		<main>
-			<!-- Seção com informações pessoais e resumo profissional/acadêmico -->
-			<section id="sobre" aria-labelledby="titulo-sobre">
-				<h2 id="titulo-sobre">Sobre</h2>
+    <!-- Botão de Dark Mode -->
+    <button id="botao-tema" type="button">Mudar Tema 🌓</button>
+  </header>
 
-				<!-- Parágrafo de apresentação acadêmica -->
-				<p>
-					Sou estudante de Engenharia de Software na Uninter, com foco em
-					desenvolvimento web, boas práticas de programação e construção de
-					soluções digitais que unam qualidade técnica e boa experiência de uso.
-				</p>
+  <main>
+    <!-- Seção Sobre Mim -->
+    <section id="sobre">
+      <h2>Sobre mim</h2>
+      <div class="sobre-conteudo">
+        <div class="texto-sobre">
+          <p>
+            Olá! Sou um programador experiente na área Web, Desktop e Mobile, com ênfase em <strong>PHP</strong> e
+            <strong>React Native</strong>.
+            Possuo conhecimentos aprofundados em utilização e construção de APIs RESTFul e no desenvolvimento de
+            Software ERP.
+          </p>
+          <p>
+            Atualmente, resido em Bálsamo (SP) e busco sempre criar soluções digitais que unam qualidade técnica, código
+            limpo e boa experiência de uso.
+          </p>
+        </div>
+        <div class="skills">
+          <h3>Principais Competências</h3>
+          <ul>
+            <li>Delphi & FirebirdSQL</li>
+            <li>React Native & JavaScript</li>
+            <li>PHP, Laravel & MySQL</li>
+            <li>HTML5 & CSS3 (SCSS)</li>
+            <li>Python</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-				<!-- Parágrafo sobre interesses e hobbies pessoais -->
-				<p>
-					Nos momentos livres, gosto de estudar novas tecnologias, praticar lógica
-					de programação, jogar videogame e assistir conteúdos sobre inovação e
-					desenvolvimento de software.
-				</p>
-			</section>
+    <!-- Seção Formação -->
+    <section id="formacao">
+      <h2>Formação Acadêmica</h2>
+      <div class="lista-formacao">
+        <div class="item-formacao">
+          <h3>Bacharelado em Engenharia de Software</h3>
+          <p class="instituicao">UNINTER Centro Universitário Internacional</p>
+          <p class="periodo">Jan 2025 - Dez 2028 (Em andamento)</p>
+        </div>
+        <div class="item-formacao">
+          <h3>Licenciatura em Matemática</h3>
+          <p class="instituicao">Instituto Federal de Educação, Ciência e Tecnologia de São Paulo (IFSP)</p>
+          <p class="periodo">2017 - 2022</p>
+        </div>
+      </div>
+    </section>
 
-			<!-- Seção com histórico de formação e cursos -->
-			<section id="formacao" aria-labelledby="titulo-formacao">
-				<h2 id="titulo-formacao">Formação</h2>
+    <!-- Seção Experiência Profissional -->
+    <section id="experiencia">
+      <h2>Experiência Profissional</h2>
+      <div class="grid-portfolio">
+        <article class="card-projeto">
+          <div class="card-conteudo">
+            <h3>Fiorilli Software</h3>
+            <p class="cargo">Desenvolvedor de Software</p>
+            <p class="descricao">Desenvolvimento e manutenção de sistemas complexos, atuando ativamente na resolução de
+              problemas e implementação de novas funcionalidades.</p>
+          </div>
+        </article>
 
-				<!-- Lista de cursos e formação acadêmica -->
-				<ul>
-					<li>Graduação em Engenharia de Software - Uninter (em andamento)</li>
-					<li>Curso de Lógica de Programação</li>
-					<li>Curso de HTML5 e CSS3 para desenvolvimento web</li>
-					<li>Curso introdutório de JavaScript</li>
-				</ul>
-			</section>
+        <article class="card-projeto">
+          <div class="card-conteudo">
+            <h3>XSTI - ERP & APIs</h3>
+            <p class="cargo">Programador Delphi Sênior / Coordenador</p>
+            <p class="descricao">Estruturação de Software ERP, Servidor DataSnap com API RESTFul, Banco de Dados
+              Firebird Avançado e uso de Componentes ACBr.</p>
+          </div>
+        </article>
 
-			<!-- Seção destinada à exibição de projetos e trabalhos -->
-			<section id="portfolio" aria-labelledby="titulo-portfolio">
-				<h2 id="titulo-portfolio">Portfólio</h2>
+        <article class="card-projeto">
+          <div class="card-conteudo">
+            <h3>App React Native & Web</h3>
+            <p class="cargo">Desenvolvedor Full Stack</p>
+            <p class="descricao">Criação de aplicativos móveis em React Native consumindo APIs RESTFul e desenvolvimento
+              de sites institucionais utilizando o framework Laravel (PHP).</p>
+          </div>
+        </article>
+      </div>
+    </section>
 
-				<!-- Grid principal com cards de projetos simulados -->
-				<div class="grid-portfolio">
-					<!-- Card do projeto 1 -->
-					<div class="card-projeto">
-						<img
-							src="https://via.placeholder.com/300"
-							alt="Imagem ilustrativa do Projeto 1"
-						/>
-						<h3>Projeto 1 - Site Institucional</h3>
-					</div>
+    <!-- Seção Portfólio (Projetos do GitHub) -->
+    <section id="portfolio">
+      <h2>Projetos Open Source (GitHub)</h2>
+      <div class="grid-portfolio">
 
-					<!-- Card do projeto 2 -->
-					<div class="card-projeto">
-						<img
-							src="https://via.placeholder.com/300"
-							alt="Imagem ilustrativa do Projeto 2"
-						/>
-						<h3>Projeto 2 - Aplicação de Tarefas</h3>
-					</div>
+        <!-- Projeto 1 -->
+        <article class="card-projeto">
+          <div class="card-conteudo">
+            <h3>Horse Documentation</h3>
+            <p class="cargo">Delphi | OpenAPI | Scalar</p>
+            <p class="descricao">Um poderoso middleware para o framework Horse que gera automaticamente documentação de
+              API interativa e elegante, utilizando o padrão OpenAPI 3.1 e a interface de usuário Scalar com apenas uma
+              linha de código.</p>
+            <a href="https://github.com/weslleycapelari/horse-documentation" target="_blank" class="btn-projeto">Ver no
+              GitHub</a>
+          </div>
+        </article>
 
-					<!-- Card do projeto 3 -->
-					<div class="card-projeto">
-						<img
-							src="https://via.placeholder.com/300"
-							alt="Imagem ilustrativa do Projeto 3"
-						/>
-						<h3>Projeto 3 - Portfólio Pessoal</h3>
-					</div>
-				</div>
-			</section>
+        <!-- Projeto 2 -->
+        <article class="card-projeto">
+          <div class="card-conteudo">
+            <h3>Horse Validator</h3>
+            <p class="cargo">Delphi | Middleware | Validation</p>
+            <p class="descricao">Um poderoso middleware de validação para o framework Horse. Permite validação
+              expressiva com regras fluentes, escopo aninhado, wildcards para arrays e checagens via banco de dados de
+              forma escalável.</p>
+            <a href="https://github.com/weslleycapelari/horse-validator" target="_blank" class="btn-projeto">Ver no
+              GitHub</a>
+          </div>
+        </article>
 
-			<!-- Seção com informações e canais de contato -->
-			<section id="contato" aria-labelledby="titulo-contato">
-				<h2 id="titulo-contato">Contato</h2>
+        <!-- Projeto 3 -->
+        <article class="card-projeto">
+          <div class="card-conteudo">
+            <h3>TextBridge4D</h3>
+            <p class="cargo">Delphi & Lazarus | AST | Parser</p>
+            <p class="descricao">Uma versátil e robusta biblioteca de conversão de formato de texto utilizando Abstract
+              Syntax Tree (AST). Permite conversões precisas e seguras entre BBCode, HTML, Markdown, RTF e Texto Plano
+              sem dependências externas.</p>
+            <a href="https://github.com/weslleycapelari/TextBridge4D" target="_blank" class="btn-projeto">Ver no
+              GitHub</a>
+          </div>
+        </article>
 
-				<!-- Formulário de contato (validação tratada por JavaScript externo) -->
-				<form id="form-contato">
-					<!-- Campo de nome -->
-					<label for="nome">Nome</label>
-					<input type="text" id="nome" name="nome" />
+      </div>
+    </section>
 
-					<!-- Campo de e-mail -->
-					<label for="email">E-mail</label>
-					<input type="email" id="email" name="email" />
+    <!-- Seção Contato -->
+    <section id="contato">
+      <h2>Contato</h2>
+      <p>Tem uma proposta ou quer bater um papo sobre tecnologia? Me mande uma mensagem!</p>
 
-					<!-- Campo de mensagem -->
-					<label for="mensagem">Mensagem</label>
-					<textarea id="mensagem" name="mensagem" rows="5"></textarea>
+      <form id="form-contato">
+        <div class="form-group">
+          <label for="nome">Nome completo:</label>
+          <input type="text" id="nome" name="nome" placeholder="Digite seu nome" />
+        </div>
 
-					<!-- Botão de envio -->
-					<button type="submit">Enviar Mensagem</button>
-				</form>
-			</section>
-		</main>
+        <div class="form-group">
+          <label for="email">E-mail:</label>
+          <input type="email" id="email" name="email" placeholder="seu.email@exemplo.com" />
+        </div>
 
-		<!-- Rodapé com informações complementares -->
-		<footer>
-			<p>&copy; 2026 - Portfólio Pessoal Acadêmico</p>
-		</footer>
+        <div class="form-group">
+          <label for="mensagem">Mensagem:</label>
+          <textarea id="mensagem" name="mensagem" rows="5" placeholder="Escreva sua mensagem aqui..."></textarea>
+        </div>
 
-		<!-- Vincula o script JavaScript no final do body -->
-		<script src="script.js"></script>
-	</body>
+        <button type="submit" class="btn-enviar">Enviar Mensagem</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 - Desenvolvido por Weslley Capelari</p>
+    <p><a href="https://www.linkedin.com/in/weslley-capelari" target="_blank">Acesse meu LinkedIn</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
 </html>

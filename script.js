@@ -1,39 +1,57 @@
-// Seleciona o formulario principal de contato pelo id.
-const formContato = document.getElementById("form-contato");
+/* TEMA CLARO/ESCURO (DARK MODE) */
 const botaoTema = document.getElementById("botao-tema");
 
-// Alterna a classe dark-theme no body a cada clique no botao de tema.
-if (botaoTema) {
-	botaoTema.addEventListener("click", function () {
-		document.body.classList.toggle("dark-theme");
-	});
+// Verifica no localStorage se o usuário já havia escolhido o tema escuro antes
+if (localStorage.getItem("tema") === "escuro") {
+  document.body.classList.add("dark-theme");
 }
 
-if (formContato) {
-	// Escuta o envio do formulario para aplicar as validacoes no lado do cliente.
-	formContato.addEventListener("submit", function (event) {
-		event.preventDefault();
+// Evento de clique para alternar o tema
+botaoTema.addEventListener("click", function () {
+  // A função toggle adiciona a classe se não existir, ou remove se já existir
+  document.body.classList.toggle("dark-theme");
 
-		// Captura os campos e remove espacos extras no inicio/fim.
-		const nome = document.getElementById("nome").value.trim();
-		const email = document.getElementById("email").value.trim();
-		const mensagem = document.getElementById("mensagem").value.trim();
+  // Salva a preferência do usuário no navegador (LocalStorage)
+  if (document.body.classList.contains("dark-theme")) {
+    localStorage.setItem("tema", "escuro");
+  } else {
+    localStorage.setItem("tema", "claro");
+  }
+});
 
-		// Verifica se todos os campos obrigatorios foram preenchidos.
-		if (!nome || !email || !mensagem) {
-			alert("Por favor, preencha todos os campos obrigatorios.");
-			return;
-		}
+/* VALIDAÇÃO DO FORMULÁRIO DE CONTATO */
+const formContato = document.getElementById("form-contato");
 
-		// Valida formato basico de e-mail.
-		const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-		if (!emailValido) {
-			alert("Por favor, informe um e-mail valido.");
-			return;
-		}
+// Escuta o evento de "submit" (envio) do formulário
+formContato.addEventListener("submit", function (event) {
+  // Impede o recarregamento automático da página
+  event.preventDefault();
 
-		// Exibe confirmacao e limpa os campos quando tudo estiver correto.
-		alert("Mensagem enviada com sucesso!");
-		formContato.reset();
-	});
-}
+  // Captura os valores digitados nos inputs e remove os espaços em branco (trim)
+  const nome = document.getElementById("nome").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const mensagem = document.getElementById("mensagem").value.trim();
+
+  // 1ª Validação: Verifica se algum campo está vazio
+  if (nome === "" || email === "" || mensagem === "") {
+    alert("Atenção: Por favor, preencha todos os campos do formulário.");
+    return; // Para a execução da função aqui
+  }
+
+  // 2ª Validação: Verifica se o e-mail possui um formato válido usando Regex
+  // A expressão regular verifica se existe algo antes do @, depois do @ e um ponto (.)
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!emailRegex.test(email)) {
+    alert("Erro: Por favor, informe um endereço de e-mail válido.");
+    return;
+  }
+
+  // Se passou por todas as validações, simula o envio com sucesso
+  alert(
+    `Obrigado pelo contato, ${nome}! \nSua mensagem foi enviada com sucesso.`,
+  );
+
+  // Limpa todos os campos do formulário
+  formContato.reset();
+});

@@ -1,242 +1,313 @@
-/*
-  Variaveis globais de tema.
-  As variaveis --dark-* ficam preparadas para futura implementacao de dark mode.
-*/
+/* Variáveis Globais (Cores, Fontes e Espaçamentos) */
 :root {
-	--color-primary: #1f4b99;
-	--color-primary-hover: #16386f;
-	--color-accent: #f2994a;
-	--color-text: #1e1e1e;
-	--color-bg: #f5f7fb;
-	--color-surface: #ffffff;
-	--color-border: #d9e0ec;
-
-	/* Variaveis para dark mode (uso futuro) */
-	--dark-bg: #0f172a;
-	--dark-surface: #1e293b;
-	--dark-text: #e2e8f0;
-	--dark-primary: #60a5fa;
+  --bg-color: #f4f7f6;
+  --surface-color: #ffffff;
+  --text-color: #333333;
+  --text-light: #666666;
+  --primary-color: #2c3e50;
+  --secondary-color: #3498db;
+  --border-color: #e0e0e0;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/*
-  Ao aplicar .dark-theme no body, as variaveis principais sao sobrescritas
-  e todo o layout passa a usar automaticamente o tema escuro.
-*/
-body.dark-theme {
-	--color-bg: var(--dark-bg);
-	--color-surface: var(--dark-surface);
-	--color-text: var(--dark-text);
-	--color-primary: var(--dark-primary);
-	--color-primary-hover: #3b82f6;
-	--color-border: #334155;
+/* Variáveis para o Tema Escuro (Dark Mode) */
+.dark-theme {
+  --bg-color: #121212;
+  --surface-color: #1e1e1e;
+  --text-color: #e0e0e0;
+  --text-light: #aaaaaa;
+  --primary-color: #ffffff;
+  --secondary-color: #4dabf7;
+  --border-color: #333333;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
 
-/* Reset basico para consistencia entre navegadores */
+/* Reset de CSS */
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Comportamento da rolagem para âncoras */
+html {
+  scroll-behavior: smooth;
+  /* Evita que o header fixo cubra os títulos ao rolar a página */
+  scroll-padding-top: 100px;
 }
 
 body {
-	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-	background-color: var(--color-bg);
-	color: var(--color-text);
-	line-height: 1.6;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-img {
-	max-width: 100%;
-	display: block;
-}
-
-/*
-  Header fixo no topo com flexbox para distribuir titulo e navegacao.
-  O sticky mantém o cabecalho visivel durante o scroll.
-*/
+/* Header Fixo (Flexbox) */
 header {
-	position: sticky;
-	top: 0;
-	z-index: 1000;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	gap: 1rem;
-	padding: 1rem 2rem;
-	background-color: var(--color-surface);
-	border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  background-color: var(--surface-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  box-shadow: var(--shadow);
+  z-index: 1000;
+  transition: background-color 0.3s;
 }
 
-header h1 {
-	font-size: 1.4rem;
-	color: var(--color-primary);
+.logo h1 {
+  font-size: 1.5rem;
+  color: var(--primary-color);
 }
 
-/* Menu em linha com espacamento horizontal entre links */
+.logo p {
+  font-size: 0.8rem;
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
 nav ul {
-	list-style: none;
-	display: flex;
-	align-items: center;
-	gap: 1rem;
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
 }
 
 nav a {
-	text-decoration: none;
-	color: var(--color-text);
-	font-weight: 600;
-	padding: 0.4rem 0.7rem;
-	border-radius: 0.4rem;
-	transition: background-color 0.2s ease, color 0.2s ease;
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+  transition: color 0.3s;
 }
 
-nav a:hover,
-nav a:focus-visible {
-	background-color: var(--color-primary);
-	color: #ffffff;
+nav a:hover {
+  color: var(--secondary-color);
 }
 
-/* Botao dedicado para alternar o tema claro/escuro */
 #botao-tema {
-	padding: 0.45rem 0.85rem;
-	border: 1px solid var(--color-border);
-	border-radius: 0.45rem;
-	background-color: var(--color-surface);
-	color: var(--color-text);
-	font-weight: 600;
-	cursor: pointer;
-	transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  background-color: var(--primary-color);
+  color: var(--surface-color);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.2s;
 }
 
-#botao-tema:hover,
-#botao-tema:focus-visible {
-	background-color: var(--color-primary);
-	border-color: var(--color-primary);
-	color: #ffffff;
+#botao-tema:hover {
+  transform: scale(1.05);
 }
 
+/* Corpo Principal */
 main {
-	max-width: 1100px;
-	margin: 2rem auto;
-	padding: 0 1rem;
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
 }
 
 section {
-	background-color: var(--color-surface);
-	border: 1px solid var(--color-border);
-	border-radius: 0.75rem;
-	padding: 1.5rem;
-	margin-bottom: 1.25rem;
+  background-color: var(--surface-color);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+  transition: background-color 0.3s;
 }
 
 section h2 {
-	color: var(--color-primary);
-	margin-bottom: 0.9rem;
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.5rem;
 }
 
-#sobre p + p {
-	margin-top: 0.7rem;
+/* Seção Sobre com Flexbox */
+.sobre-conteudo {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
-#formacao ul {
-	padding-left: 1.2rem;
+.texto-sobre {
+  flex: 2;
+  min-width: 300px;
 }
 
-#formacao li + li {
-	margin-top: 0.35rem;
+.skills {
+  flex: 1;
+  min-width: 250px;
+  background-color: var(--bg-color);
+  padding: 1rem;
+  border-radius: 5px;
 }
 
-/*
-  Grid responsivo para os cards de portfolio.
-  Cada coluna tem no minimo 250px e cresce para ocupar o espaco disponivel.
-*/
+.skills ul {
+  list-style-type: square;
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+/* Seção Formação */
+.item-formacao {
+  margin-bottom: 1.5rem;
+}
+
+.item-formacao h3 {
+  color: var(--primary-color);
+}
+
+.instituicao {
+  font-weight: bold;
+}
+
+.periodo {
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+/* Grids: Experiência e Portfólio (CSS Grid) */
 .grid-portfolio {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-	gap: 1.2rem;
-	margin-top: 0.6rem;
+  display: grid;
+  /* Grid responsivo: cria colunas de no mínimo 280px */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
 }
 
 .card-projeto {
-	background-color: #ffffff;
-	border: 1px solid var(--color-border);
-	border-radius: 0.7rem;
-	overflow: hidden;
-	box-shadow: 0 6px 16px rgba(31, 75, 153, 0.08);
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card-projeto:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
 }
 
 .card-projeto h3 {
-	padding: 0.9rem 1rem 1rem;
-	font-size: 1rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
 }
 
+.card-projeto .cargo {
+  font-weight: bold;
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.card-projeto .descricao {
+  margin-bottom: 1.5rem;
+}
+
+/* Botões dos Projetos Github */
+.btn-projeto {
+  display: inline-block;
+  padding: 0.6rem 1rem;
+  background-color: var(--primary-color);
+  color: var(--surface-color) !important;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+  align-self: flex-start;
+}
+
+.btn-projeto:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Formulário de Contato */
 #form-contato {
-	display: grid;
-	gap: 0.7rem;
-	max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
-#form-contato input,
-#form-contato textarea,
-#form-contato button {
-	font: inherit;
+.form-group {
+  display: flex;
+  flex-direction: column;
 }
 
-#form-contato input,
-#form-contato textarea {
-	width: 100%;
-	padding: 0.65rem 0.75rem;
-	border: 1px solid var(--color-border);
-	border-radius: 0.45rem;
-	background-color: #ffffff;
+.form-group label {
+  margin-bottom: 0.3rem;
+  font-weight: bold;
 }
 
-#form-contato button {
-	align-self: flex-start;
-	width: fit-content;
-	padding: 0.65rem 1rem;
-	border: none;
-	border-radius: 0.45rem;
-	background-color: var(--color-primary);
-	color: #ffffff;
-	font-weight: 600;
-	cursor: pointer;
+.form-group input,
+.form-group textarea {
+  padding: 0.8rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: inherit;
 }
 
-#form-contato button:hover,
-#form-contato button:focus-visible {
-	background-color: var(--color-primary-hover);
+/* Destaque ao focar no input */
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.3);
 }
 
-#form-contato textarea {
-	resize: vertical;
-	min-height: 120px;
+button[type="submit"] {
+  background-color: var(--secondary-color);
+  color: #fff;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
+button[type="submit"]:hover {
+  background-color: #2980b9;
+}
+
+/* Rodapé */
 footer {
-	text-align: center;
-	padding: 1rem;
-	color: #4a4a4a;
+  text-align: center;
+  padding: 2rem;
+  background-color: var(--surface-color);
+  border-top: 1px solid var(--border-color);
+  margin-top: 2rem;
 }
 
-/* Breakpoint smartphone (<768px): navegacao em coluna e secoes mais compactas */
+footer a {
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+
+/* Media Queries (Responsividade para Mobile) */
 @media (max-width: 768px) {
-	header {
-		flex-direction: column;
-		align-items: flex-start;
-		padding: 1rem;
-	}
+  header {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
 
-	nav ul {
-		flex-direction: column;
-		align-items: flex-start;
-		gap: 0.5rem;
-	}
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 
-	section {
-		padding: 1rem;
-	}
-
-	#botao-tema {
-		align-self: flex-start;
-	}
+  .sobre-conteudo {
+    flex-direction: column;
+  }
 }
